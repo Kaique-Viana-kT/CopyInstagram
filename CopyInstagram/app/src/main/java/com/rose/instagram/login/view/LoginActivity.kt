@@ -73,7 +73,7 @@ class LoginActivity : AppCompatActivity(), Login.View {
     }
 
     override fun showProgress(enabled: Boolean) {
-        binding.loginBtnEnter.showProgress(true)
+        binding.loginBtnEnter.showProgress(enabled)
     }
 
     override fun displayEmailFailure(emailError: Int?) {
