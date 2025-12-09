@@ -6,6 +6,7 @@ import android.os.Handler
 import android.os.Looper
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.widget.Button
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
@@ -56,7 +57,6 @@ class LoginActivity : AppCompatActivity(), Login.View {
             }
 
             loginBtnEnter.setOnClickListener {
-
                 presenter.login(loginEditEmail.text.toString(), loginEditPassword.text.toString())
 
             }

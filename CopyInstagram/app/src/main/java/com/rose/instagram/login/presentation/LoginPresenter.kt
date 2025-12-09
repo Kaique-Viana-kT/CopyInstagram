@@ -14,7 +14,7 @@ class LoginPresenter(
     override fun login(email: String, password: String) {
 
         val isEmailValid = Patterns.EMAIL_ADDRESS.matcher(email).matches()
-        val isPasswordValid = password.length < 8
+        val isPasswordValid = password.length >= 8
 
         if (isEmailValid && isPasswordValid) {
             view?.showProgress(true)

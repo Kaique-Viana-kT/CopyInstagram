@@ -21,6 +21,7 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/register_txt_welcome"
                 android:text="@string/welcome_to_instagram"
                 style="@style/Theme.Instagram.TextViewBase.Form"/>
 

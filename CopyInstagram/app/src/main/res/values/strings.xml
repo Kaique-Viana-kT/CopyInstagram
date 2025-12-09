@@ -57,4 +57,5 @@ Já tem uma conta?
     <string name="logout_action">Sair</string>
     <string name="cancel">Cancel</string>
     <string name="invalid_password">Senha inválida</string>
+    <string name="invalid_name">Nome deve ter ao menos 3 caracteres</string>
 </resources>

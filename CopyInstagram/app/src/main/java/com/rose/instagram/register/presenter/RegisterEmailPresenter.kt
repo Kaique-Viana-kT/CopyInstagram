@@ -2,26 +2,29 @@ package com.rose.instagram.register.presenter
 
 import android.util.Patterns
 import com.rose.instagram.R
-import com.rose.instagram.common.model.UserAuth
-import com.rose.instagram.login.Login
-import com.rose.instagram.login.data.LoginCallback
-import com.rose.instagram.login.data.LoginRepository
 import com.rose.instagram.register.RegisterEmail
-import com.rose.instagram.register.data.RegisterEmailCallback
-import com.rose.instagram.register.data.RegisterEmailRepository
+import com.rose.instagram.register.data.RegisterCallback
+import com.rose.instagram.register.data.RegisterRepository
 
 class RegisterEmailPresenter(
     private var view: RegisterEmail.View?,
-    private val repository: RegisterEmailRepository
+    private val repository: RegisterRepository
 ) : RegisterEmail.Presenter {
+
     override fun create(email: String) {
 
         val isEmailValid = Patterns.EMAIL_ADDRESS.matcher(email).matches()
 
+        if(!isEmailValid){
+            view?.displayEmailFailure(R.string.invalid_email)
+        }else{
+            view?.displayEmailFailure(null)
+        }
+
         if (isEmailValid) {
             view?.showProgress(true)
 
-            repository.create(email, object : RegisterEmailCallback {
+            repository.create(email, object : RegisterCallback {
                 override fun onSucess() {
                     view?.goToNameAndPasswordScreen(email)
                 }
@@ -34,8 +37,7 @@ class RegisterEmailPresenter(
                     view?.showProgress(false)
                 }
 
-            }
-            )
+            })
         }
 
     }
